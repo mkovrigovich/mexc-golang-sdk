@@ -19,7 +19,7 @@ func (s *Service) BatchOrders(ctx context.Context, requests []BatchOrdersRequest
 		params["symbol"] = req.Symbol
 		params["side"] = string(req.Side)
 		params["type"] = string(req.Type)
-		params["timestamp"] = s.getTimestamp()
+		//params["timestamp"] = s.getTimestamp()
 
 		if req.Quantity != nil {
 			params["quantity"] = *req.Quantity
