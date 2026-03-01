@@ -4,9 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	mexchttp "github.com/mkovrigovich/mexc-golang-sdk/http"
 	"strconv"
 	"time"
+
+	mexchttp "github.com/mkovrigovich/mexc-golang-sdk/http"
 )
 
 type Service struct {
@@ -17,7 +18,7 @@ type Service struct {
 func New(ctx context.Context, client *mexchttp.Client) (*Service, error) {
 	s := &Service{client: client}
 
-	err := s.syncServerTime(ctx)
+	err := s.SyncServerTime(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -25,7 +26,7 @@ func New(ctx context.Context, client *mexchttp.Client) (*Service, error) {
 	return s, nil
 }
 
-func (s *Service) syncServerTime(ctx context.Context) error {
+func (s *Service) SyncServerTime(ctx context.Context) error {
 	r, err := s.Time(ctx)
 	if err != nil {
 		return fmt.Errorf("get server time: %w", err)
