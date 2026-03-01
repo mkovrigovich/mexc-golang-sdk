@@ -5,6 +5,7 @@ const (
 	// Market
 	EndpointExchangeInfo           = "/api/v3/exchangeInfo"
 	EndpointOrder                  = "/api/v3/order"
+	EndpointBatchOrders            = "/api/v3/batchOrders"
 	EndpointOrderBook              = "/api/v3/depth"
 	EndpointPing                   = "/api/v3/ping"
 	EndpointTime                   = "/api/v3/time"

@@ -1,7 +1,7 @@
 package connection
 
 import (
-	"github.com/kattana-io/mexc-golang-sdk/websocket/types"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket/types"
 	"sync"
 )
 

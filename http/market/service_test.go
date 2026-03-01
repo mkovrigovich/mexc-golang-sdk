@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"testing"
 
-	mexchttp "github.com/kattana-io/mexc-golang-sdk/http"
+	mexchttp "github.com/mkovrigovich/mexc-golang-sdk/http"
 
 	"github.com/stretchr/testify/assert"
 )

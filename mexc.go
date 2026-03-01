@@ -2,10 +2,10 @@ package mexc
 
 import (
 	"context"
-	mexchttp "github.com/kattana-io/mexc-golang-sdk/http"
-	mexchttpmarket "github.com/kattana-io/mexc-golang-sdk/http/market"
-	"github.com/kattana-io/mexc-golang-sdk/websocket"
-	"github.com/kattana-io/mexc-golang-sdk/websocket/market"
+	mexchttp "github.com/mkovrigovich/mexc-golang-sdk/http"
+	mexchttpmarket "github.com/mkovrigovich/mexc-golang-sdk/http/market"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket/market"
 )
 
 type Rest struct {

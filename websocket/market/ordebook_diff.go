@@ -3,7 +3,7 @@ package mexcwsmarket
 import (
 	"context"
 	"fmt"
-	"github.com/kattana-io/mexc-golang-sdk/websocket/dto"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket/dto"
 )
 
 const (

@@ -3,7 +3,7 @@ package mexchttpmarket
 import (
 	"context"
 	"encoding/json"
-	"github.com/kattana-io/mexc-golang-sdk/consts"
+	"github.com/mkovrigovich/mexc-golang-sdk/consts"
 	"net/http"
 )
 

@@ -1,8 +1,8 @@
 package mexcwsuser
 
 import (
-	mexchttpstream "github.com/kattana-io/mexc-golang-sdk/http/stream"
-	"github.com/kattana-io/mexc-golang-sdk/websocket"
+	mexchttpstream "github.com/mkovrigovich/mexc-golang-sdk/http/stream"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket"
 )
 
 type Service struct {

@@ -1,6 +1,6 @@
 package mexcwstypes
 
-import "github.com/kattana-io/mexc-golang-sdk/websocket/dto"
+import "github.com/mkovrigovich/mexc-golang-sdk/websocket/dto"
 
 type OnReceive func(message *dto.PushDataV3ApiWrapper)
 type OnError func(connClosed bool, err error)

@@ -3,8 +3,8 @@ package mexcws
 import (
 	"container/heap"
 	"context"
-	"github.com/kattana-io/mexc-golang-sdk/websocket/connection"
-	"github.com/kattana-io/mexc-golang-sdk/websocket/types"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket/connection"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket/types"
 	"net/url"
 	"sync"
 )

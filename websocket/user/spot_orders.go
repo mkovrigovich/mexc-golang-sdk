@@ -3,8 +3,8 @@ package mexcwsuser
 import (
 	"context"
 	"fmt"
-	"github.com/kattana-io/mexc-golang-sdk/websocket/dto"
-	mexcwstypes "github.com/kattana-io/mexc-golang-sdk/websocket/types"
+	"github.com/mkovrigovich/mexc-golang-sdk/websocket/dto"
+	mexcwstypes "github.com/mkovrigovich/mexc-golang-sdk/websocket/types"
 	"github.com/shopspring/decimal"
 )
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	mexchttp "github.com/kattana-io/mexc-golang-sdk/http"
+	mexchttp "github.com/mkovrigovich/mexc-golang-sdk/http"
 	"strconv"
 	"time"
 )
