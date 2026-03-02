@@ -1,14 +1,18 @@
 package mexchttp
 
 import (
+	"bytes"
 	"context"
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/mkovrigovich/mexc-golang-sdk/consts"
 )
 
 // Client представляет клиента для работы с API MEXC.
@@ -45,9 +49,15 @@ func (c *Client) newRequest(ctx context.Context, method, endpoint string, params
 	}
 
 	query := url.Values{}
-	for key, value := range params {
-		query.Add(key, value)
+	withBody := false
+	if endpoint != consts.EndpointBatchOrders {
+		for key, value := range params {
+			query.Add(key, value)
+		}
+	} else {
+		withBody = true
 	}
+
 	reqURL.RawQuery = query.Encode()
 
 	// Signature generation
@@ -56,7 +66,16 @@ func (c *Client) newRequest(ctx context.Context, method, endpoint string, params
 
 	reqURL.RawQuery = query.Encode()
 
-	req, err := http.NewRequestWithContext(ctx, method, reqURL.String(), http.NoBody)
+	var req *http.Request
+	if withBody {
+		content, err := json.Marshal(params)
+		if err != nil {
+			return nil, err
+		}
+		req, err = http.NewRequestWithContext(ctx, method, reqURL.String(), bytes.NewBuffer(content))
+	} else {
+		req, err = http.NewRequestWithContext(ctx, method, reqURL.String(), http.NoBody)
+	}
 	if err != nil {
 		return nil, err
 	}
