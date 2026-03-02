@@ -65,6 +65,9 @@ func (c *Client) newRequest(ctx context.Context, method, endpoint string, params
 
 	// Signature generation
 	signature := c.generateSignature(reqURL.RawQuery)
+	if withBody {
+		signature = c.generateSignature(queryBody.Encode())
+	}
 	query.Add("signature", signature)
 
 	reqURL.RawQuery = query.Encode()
