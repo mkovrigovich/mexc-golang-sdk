@@ -6,7 +6,6 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/hex"
-	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -49,12 +48,16 @@ func (c *Client) newRequest(ctx context.Context, method, endpoint string, params
 	}
 
 	query := url.Values{}
+	queryBody := url.Values{}
 	withBody := false
 	if endpoint != consts.EndpointBatchOrders {
 		for key, value := range params {
 			query.Add(key, value)
 		}
 	} else {
+		for key, value := range params {
+			queryBody.Add(key, value)
+		}
 		withBody = true
 	}
 
@@ -68,11 +71,7 @@ func (c *Client) newRequest(ctx context.Context, method, endpoint string, params
 
 	var req *http.Request
 	if withBody {
-		content, err := json.Marshal(params)
-		if err != nil {
-			return nil, err
-		}
-		req, err = http.NewRequestWithContext(ctx, method, reqURL.String(), bytes.NewBuffer(content))
+		req, err = http.NewRequestWithContext(ctx, method, reqURL.String(), bytes.NewBuffer([]byte(queryBody.Encode())))
 	} else {
 		req, err = http.NewRequestWithContext(ctx, method, reqURL.String(), http.NoBody)
 	}
